@@ -53,6 +53,9 @@ public class ManageSeccion {
     }
 
     public void updateColorJson(List<Census_section> census, String path) throws FileNotFoundException, IOException, ParseException {
+        
+        System.out.println("Updating JSON...");
+        
         JSONParser jsonParser = new JSONParser();
 
         JSONParser parser = new JSONParser();
@@ -90,15 +93,18 @@ public class ManageSeccion {
             fileWriter.close();
 
             f.close();
-            System.out.println("Update json");
+            System.out.println("JSON updated");
         } catch (FileNotFoundException e) {
+             System.out.println("Problem in updating JSON");
         } catch (IOException e) {
+            System.out.println("Problem in updating JSON");
         } catch (ParseException e) {
+            System.out.println("Problem in updating JSON");
         }
     }
 
     public List<Census_section> getConsumDay(String dayIni, String dayEnd, String path) throws ParseException, IOException {
-
+        System.out.println("Getting data...");
         String queryMax = "  select max(consum)as maxconsum from (select sum(consumo_seccion_censal.consumo) as consum from consumo_seccion_censal where dia between ? and ? group by seccion_censal)a;";
         int maxConsum = 0;
         try {
@@ -114,7 +120,8 @@ public class ManageSeccion {
             rsMax.close();
             statementMax.close();
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println("Problem in executing first query");
+            //e.printStackTrace();
         }
 
         String query = "select sum(consumo_seccion_censal.consumo) as consum, consumo_seccion_censal.seccion_censal,seccion_censal.habitantes, seccion_censal.hab_hombres,seccion_censal.hab_mujeres,seccion_censal.edad_0_a_14,seccion_censal.edad_15_a_24,seccion_censal.edad_25_a_64,seccion_censal.edad_65_a_mas from consumo_seccion_censal JOIN seccion_censal ON consumo_seccion_censal.seccion_censal  = seccion_censal.id_seccion_censal where dia between ? and ? group by seccion_censal order by consumo_seccion_censal.seccion_censal;";
@@ -162,8 +169,11 @@ public class ManageSeccion {
             rs.close();
             statement.close();
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println("Problem in executing first query");
+            //e.printStackTrace();
         }
+        
+        System.out.println("Data sucessfully retrieved");
 
         return l;
     }

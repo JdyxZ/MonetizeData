@@ -50,12 +50,6 @@ public class MainController extends HttpServlet {
            //Update json
             manager.updateColorJson(consumDay, pathJson);
 
-//            for (Iterator<Census_section> iterator = consumDay.iterator(); iterator.hasNext();) {
-//                Census_section next = iterator.next();
-//                next.getConsum().getDia();
-//                System.out.println("Id: " + next.getId_code());
-//
-//            }
         } catch (Exception e) {
         }
 
