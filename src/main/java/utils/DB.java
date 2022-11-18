@@ -9,10 +9,10 @@ public class DB {
 	public DB() throws Exception {
 		
 		// WITHOUT POOL
-		String user = "root";
-		String password="1234";
+		String user = "mysql";
+		String password="prac";
 		Class.forName("com.mysql.cj.jdbc.Driver");
-		connection=DriverManager.getConnection("jdbc:mysql://localhost/monetizedata?serverTimezone=UTC&user="+user+"&password="+password);
+		connection=DriverManager.getConnection("jdbc:mysql://localhost/dataaiguas?user="+user+"&password="+password);
 
 	}
 	

@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
         <script
         src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://kit.fontawesome.com/66d982b1d0.js" crossorigin="anonymous"></script>
         <style>
 
             body,h1,h2,h3,h4,h5,h6 {
@@ -21,6 +22,7 @@
             }
             .w3-bar-block .w3-bar-item {
                 padding:20px
+                    
             }
             td {
                 text-align: center;
@@ -50,7 +52,7 @@
                 /*position: fixed;*/
                 top: 0;
                 width: 100%;
-                background-color: gainsboro !important;
+                background-color: rgb(0,14,214) !important;
 
             }
 
@@ -94,11 +96,204 @@
                 box-shadow: 0 0 20px rgba(0,0,0,0.5);
                 background: linear-gradient(to top, #FFFFFF, #000064);
             }
+ * {
+  font-family: Open Sans;
+}
 
+section {
+  width: 100%;
+  display: inline-block;
+  background: #333;
+  height: 50vh;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.footer-distributed{
+	background: rgb(0,14,214);
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+	width: 100%;
+	text-align: left;
+	font: bold 16px sans-serif;
+	padding: 55px 50px;
+}
+
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right{
+	display: inline-block;
+	vertical-align: top;
+}
+
+/* Footer left */
+
+.footer-distributed .footer-left{
+	width: 40%;
+}
+
+/* The company logo */
+
+.footer-distributed h3{
+	color:  #ffffff;
+	font: normal 36px 'Open Sans', cursive;
+	margin: 0;
+}
+
+.footer-distributed h3 span{
+	color:  lightseagreen;
+}
+
+/* Footer links */
+
+.footer-distributed .footer-links{
+	color:  #ffffff;
+	margin: 20px 0 12px;
+	padding: 0;
+}
+
+.footer-distributed .footer-links a{
+	display:inline-block;
+	line-height: 1.8;
+  font-weight:400;
+	text-decoration: none;
+	color:  inherit;
+}
+
+.footer-distributed .footer-company-name{
+	color:  white;
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0;
+}
+
+/* Footer Center */
+
+.footer-distributed .footer-center{
+	width: 35%;
+}
+
+.footer-distributed .footer-center i{
+	background-color:  #2a6f99;
+	color: #ffffff;
+	font-size: 25px;
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 42px;
+	margin: 10px 15px;
+	vertical-align: middle;
+}
+
+.footer-distributed .footer-center i.fa-envelope{
+	font-size: 17px;
+	line-height: 38px;
+}
+
+.footer-distributed .footer-center p{
+	display: inline-block;
+	color: #ffffff;
+  font-weight:400;
+	vertical-align: middle;
+	margin:0;
+}
+
+.footer-distributed .footer-center p span{
+	display:block;
+	font-weight: normal;
+	font-size:14px;
+	line-height:2;
+}
+
+.footer-distributed .footer-center p a{
+	color:  lightseagreen;
+	text-decoration: none;;
+}
+
+.footer-distributed .footer-links a:before {
+  content: "|";
+  font-weight:300;
+  font-size: 20px;
+  left: 0;
+  color: #fff;
+  display: inline-block;
+  padding-right: 5px;
+}
+
+.footer-distributed .footer-links .link-1:before {
+  content: none;
+}
+
+/* Footer Right */
+
+.footer-distributed .footer-right{
+	width: 20%;
+}
+
+.footer-distributed .footer-company-about{
+	line-height: 20px;
+	color:  #92999f;
+	font-size: 13px;
+	font-weight: normal;
+	margin: 0;
+}
+
+.footer-distributed .footer-company-about span{
+	display: block;
+	color:  #ffffff;
+	font-size: 14px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+.footer-distributed .footer-icons{
+	margin-top: 25px;
+}
+
+.footer-distributed .footer-icons a{
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+	background-color:  #2a6f99;
+	border-radius: 2px;
+
+	font-size: 20px;
+	color: #ffffff;
+	text-align: center;
+	line-height: 35px;
+
+	margin-right: 3px;
+	margin-bottom: 5px;
+}
+
+/* If you don't want the footer to be responsive, remove these media queries */
+
+@media (max-width: 880px) {
+
+	.footer-distributed{
+		font: bold 14px sans-serif;
+	}
+
+	.footer-distributed .footer-left,
+	.footer-distributed .footer-center,
+	.footer-distributed .footer-right{
+		display: block;
+		width: 100%;
+		margin-bottom: 40px;
+		text-align: center;
+	}
+
+	.footer-distributed .footer-center i{
+		margin-left: 0;
+	}
+
+}
         </style>
         <script type="text/javascript">
-
-
             // var iframes = document.querySelector("iframe"); //te da los Iframes de la pagina
             //var iframeDocument = iframes.contentWindow.document; //Con esto tenemos el iframe
             // alert(document.getElementById('myIframe').contentWindow.myDummyFunction());
@@ -116,15 +311,15 @@
             <a href="javascript:void(0)" onclick="w3_close()"
                class="w3-bar-item w3-button">Close Menu</a>
             <a href="#food" onclick="w3_close()" class="w3-bar-item w3-button">View Map</a>
-            <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">About</a>
+            <a href="#footer" onclick="w3_close()" class="w3-bar-item w3-button">About</a>
         </nav>
 
         <!-- Top menu -->
         <!--<div class="w3-top" style="background-color: gainsboro">-->
         <div class="w3-white w3-xlarge navbar" style="">
-            <div class="w3-button w3-padding-16 w3-left" onclick="w3_open()">☰</div>
-            <div class="w3-right w3-padding-16" style="margin-right: 3%">Contact</div>
-            <div class="w3-center w3-padding-16">Monetize Data</div>
+            <div class="w3-button w3-padding-16 w3-left" onclick="w3_open()" style="color:white">☰</div>
+            <div class="w3-right w3-padding-16" style="margin-right: 3%; color:white">Contact</div>
+            <div class="w3-center w3-padding-16" style="color:white">Monetize Data</div>
         </div>
         <div class="w3-right " ><img src="img/aigues-de-barcelona-logo.png"></img></div>
         <!--</div>-->
@@ -145,18 +340,18 @@
                 </div>
             </div>
 
-
+<script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
             <div class="w3-container">
                 <h2>Consumption per day</h2>
                 <p>The table indicates the consumption of one day of all the census sections of Barcelona.</p>
                 <div style=" overflow:scroll;height:300px;">
-                    <table style="margin-bottom: 30px;" id = "consumo2" class="w3-table w3-striped w3-border"  >
+                    <table style="margin-bottom: 30px;" id = "consumo2" class="w3-table w3-striped w3-border sortable"  >
                         <tr>
                             <th>District</th>
                             <th>Census code</th>
                             <th>Start Date</th>
                             <th>End Date</th>
-                            <th>Consumption</th>
+                            <th onclick="sortTable(4)">Consumption</th>
                             <th>Population</th>
                             <th>Ratio Male/Female</th>
                             <th>Age <14 </th>
@@ -164,7 +359,6 @@
                             <th>Age 25/64 </th>
                             <th>Age >65 </th>
                         </tr>
-
                         <c:forEach var="s" items="${seccion}"> 
                             <tr>
                                 <td style=" text-align: center;">${s.district}</td>
@@ -320,7 +514,59 @@
             }
         </script>
 
+<footer class="footer-distributed" id="footer">
 
+			<div class="footer-left">
+
+				<h3>Monetize<span>Data</span></h3>
+
+				<p class="footer-links">
+					<a href="#" class="link-1">Start</a>
+                                        
+					<a href="mailto:javier.serrano04@estudiant.upf.edu">Contact</a>
+				</p>
+
+				<p class="footer-company-name">Universitat Pompeu Fabra ©</p>
+			</div>
+
+			<div class="footer-center">
+
+				<div>
+					<i class="fa fa-map-marker"></i>
+					<p><span>Carrer de Tànger, 122, 140</span> 08018 Barcelona</p>
+				</div>
+
+				<div>
+					<i class="fa fa-phone"></i>
+					<p>+34 935 42 22 01</p>
+				</div>
+
+				<div>
+					<i class="fa fa-envelope"></i>
+					<p><a href="mailto:javier.serrano04@estudiant.upf.edu">Contact Us</a></p>
+				</div>
+
+			</div>
+
+			<div class="footer-right">
+
+				<p class="footer-company-about">
+					<span>About the company</span>
+					Monetize Data is a group of 5 students from Pompeu Fabra University who have been in charge of developing and launching this application.
+				</p>
+
+				<div class="footer-icons">
+
+					<a href="#"><i class="fa fa-facebook"></i></a>
+					<a href="#"><i class="fa fa-twitter"></i></a>
+					<a href="#"><i class="fa fa-linkedin"></i></a>
+					<a href="https://github.com/JdyxZ/MonetizeData"><i class="fa fa-github"></i></a>
+
+				</div>
+
+			</div>
+
+		</footer>
     </body>
 
 </html>

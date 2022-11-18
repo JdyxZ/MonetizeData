@@ -119,6 +119,7 @@ public class ManageSeccion {
             System.out.println("Maximo consum: " + maxConsum);
             rsMax.close();
             statementMax.close();
+            
         } catch (SQLException e) {
             System.out.println("Problem in executing first query");
             //e.printStackTrace();
