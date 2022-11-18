@@ -10,9 +10,9 @@ public class DB {
 		
 		// WITHOUT POOL
 		String user = "root";
-		String password="admin";
+		String password="1234";
 		Class.forName("com.mysql.cj.jdbc.Driver");
-		connection=DriverManager.getConnection("jdbc:mysql://localhost/dataaigues?serverTimezone=UTC&user="+user+"&password="+password);
+		connection=DriverManager.getConnection("jdbc:mysql://localhost/monetizedata?serverTimezone=UTC&user="+user+"&password="+password);
 
 	}
 	

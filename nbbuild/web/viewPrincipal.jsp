@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>W3.CSS Template</title>
+        <title>MonetizeData</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -91,19 +91,8 @@
             {
                 width: 20px;
                 height: 300px;
-                padding: 20px;
                 box-shadow: 0 0 20px rgba(0,0,0,0.5);
                 background: linear-gradient(to top, #FFFFFF, #000064);
-            }
-            
-            .inputColor
-            {
-                width: 70px;
-                height: 40px;
-                float: left;
-                margin: 10px;
-                margin-top: 20px;
-                box-shadow: 0 0 20px rgba(0,0,0,0.5);
             }
 
         </style>
@@ -148,12 +137,10 @@
                 <p>Map of water consumption for the day 2021-01-01 by census section.</p>
 
                 <div class="embed-container">
-                    <iframe id= "myIframe" width="100%" height="800" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" title="Barcelona" src="//www.arcgis.com/apps/Embed/index.html?webmap=1f4fffa42b8a423c81530a7a44cc3a35&extent=1.975,41.3269,2.3798,41.4696&zoom=true&previewImage=false&scale=true&search=true&searchextent=true&disable_scroll=true&theme=light"></iframe>
-                    <div id="legend">
-                    <h5> Legend </h5>
-                    <div class="gradientMap" id="gradient"></div>
-                        <input type="color" class="inputColor" id="color0" value="#FFFFFF">
-                        <input type="color" class="inputColor" id="color1" value="#000064">
+                    <iframe id= "myIframe" width="80%" height="800" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" title="Barcelona" src="//www.arcgis.com/apps/Embed/index.html?webmap=1f4fffa42b8a423c81530a7a44cc3a35&extent=1.975,41.3269,2.3798,41.4696&zoom=true&previewImage=false&scale=true&search=true&searchextent=true&disable_scroll=true&theme=light"></iframe>
+                    <div id="scale" style="float:right; margin-top: 20%; margin-right: 40px;">
+                        <h5> Scale </h5>
+                        <div class="gradientMap" id="gradient"></div>
                     </div>
                 </div>
             </div>
@@ -192,11 +179,6 @@
                                 <td style=" text-align: center;">${s.age_25_64}</td>
                                 <td style=" text-align: center;">${s.age_65_mas}</td>
                             </tr>
-                            <script>
-                                var maxConsumption = $("maxConsumption").val(); //Send from the controller the maxConsumption attribute
-                                var rangedConsumption = ${s.getConsum().getConsumption()} / maxConsumption;
-                                var color = computeRGBcolor($("#color0").attr("value"), $("#color1").attr("value"), rangedConsumption);
-                            </script>
                         </c:forEach>
                     </table>
                 </div>
@@ -209,62 +191,7 @@
         
         <!--- Javi script --->
         <script>
-            //Get colors
-            var color0 = document.getElementById("color0");
-            var color1 = document.getElementById("color1");
             
-            function setGradientColor()
-            {
-                //Get gradient
-                var gradient = document.getElementById("gradient");
-                
-                //Set color
-                gradient.style.background = 
-                    "linear-gradient(to top, "
-                    + color0.value
-                    + ", "
-                    + color1.value
-                    + ")";
-            }
-            
-            //Call method when colors change
-            color0.addEventListener("input", setGradientColor);
-            color1.addEventListener("input", setGradientColor);
-            
-            function HextoRGB(hexColor)
-            {
-                var red = parseInt(hexColor.substring(2),16);
-                var green = parseInt(hexColor.substring(2, 4),16);
-                var blue = parseInt(hexColor.substring(4, 6),16);
-                return [red, green, blue];
-            }
-            
-            function RGBtoHex(RGBcolor)
-            {
-                return RGBcolor[0].toString(16) + RGBcolor[1].toString(16) + RGBcolor[2].toString(16);
-            }
-            
-            function computeRGBcolor(Hexcolor0, Hexcolor1, weight)
-            {
-                //Convert hexadecimal colors to RGB
-                var RGBcolor0 = HextoRGB(Hexcolor0);
-                var RGBcolor1 = HextoRGB(Hexcolor1);
-                
-                //Linear interpolation
-                var w1 = weight;
-                var w2 = 1 - w1;
-                var RGBcolor =    
-                    [
-                    Math.round(RGBcolor0[0] * w1 + RGBcolor1[0] * w2),
-                    Math.round(RGBcolor0[1] * w1 + RGBcolor1[1] * w2),
-                    Math.round(RGBcolor0[2] * w1 + RGBcolor1[2] * w2)
-                    ];
-                    
-                //Reconvert to hexadecimal and return
-                var hexColor = RGBtoHex(RGBcolor);
-                return hexColor;
-            }
-
             function SearchBar() {
               var input, filter, table, tr, td, i, ti, j, txtValue, searchedRow;
               input = document.getElementById("myInput");
@@ -297,6 +224,7 @@
             }
         </script>
 
+        <!--- Someone script --->
         <script>
 
             Array.prototype.max = function () {
@@ -379,6 +307,8 @@
                 }
             });
         </script>
+        
+        <!--- Someone script --->
         <script>
             // Script to open and close sidebar
             function w3_open() {
