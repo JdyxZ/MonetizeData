@@ -54,27 +54,6 @@
 
             }
 
-            /*            .embed-container {
-                            position: relative;
-                            padding-bottom: 100%;
-                            height: 0;
-                            max-width: 100%;
-                        }*/
-            /*            .embed-container iframe, .embed-container object, .embed-container
-                        iframe{
-                            position: absolute;
-                            top: 0;
-                            left: 200px;
-                            width: 50%;
-                            height: 30%;
-                        }*/
-            /*           small{
-                          position: absolute;
-                           z-index: 40;
-                           bottom: 0;
-                           margin-bottom: -15px;
-                       }*/
-
             .searchBar
             {
             background-image: url('/css/searchicon.png'); 
@@ -94,17 +73,61 @@
                 box-shadow: 0 0 20px rgba(0,0,0,0.5);
                 background: linear-gradient(to top, #FFFFFF, #000064);
             }
+            
+            .statistics
+            {
+                color: white;
+                text-align: center;
+                vertical-align: middle;
+                font-size: 15px;
+                background: #191876;
+                font-family: Segoe UI;
+                border-radius: 15px;
+                font-weight: bold; 
+                height: 30px;
+            }
 
         </style>
-        <script type="text/javascript">
+        <script type="text/javascript"> 
+        $(document).ready(function(){            
+            
+            computeStatistics();
 
+            function computeStatistics()
+            {
+                let consumptions = [];
+                var item_sum = 0, n_items = 0, mean = 0, standard_deviation = 0, max_consumption = 0, min_consumption = 0;
+                
+                $('td').each(function ()
+                {
+                    if ($(this).attr('id') === "con")
+                    {
+                        var item = parseInt($(this).text());
+                        consumptions.push(item);
+                        item_sum += item;
+                        n_items += 1;
+                    }
 
-            // var iframes = document.querySelector("iframe"); //te da los Iframes de la pagina
-            //var iframeDocument = iframes.contentWindow.document; //Con esto tenemos el iframe
-            // alert(document.getElementById('myIframe').contentWindow.myDummyFunction());
-            // alert($("#cp_center").attr("id"));
+                });
+                
+                mean = Math.trunc(item_sum / n_items);
+                max_consumption = Math.max(consumptions); 
+                min_consumption = Math.min(consumptions);
+                var deviation_sum = 0;
+                for(let i = 0; i < n_items; i++)
+                {
+                    deviation_sum += Math.pow((consumptions[i] - mean),2);
+                }
+                standard_deviation = Math.trunc(Math.sqrt(deviation_sum / n_items));
 
-
+                //Set statistics
+                $('#mean').text(String(mean));
+                $('#standard_deviation').text(String(standard_deviation));
+                $('#max_value').text(String(max_consumption));
+                $('#min_value').text(String(min_consumption));
+            }                                    
+        });
+ 
         </script>
     </head>
     <body>
@@ -183,10 +206,32 @@
                     </table>
                 </div>
             </div>
+            
 
-            <div class="container" style="width:50%;">
+            <div class="container" style="width:45%; float:left">
                 <canvas id="examChart"></canvas>
             </div>
+            
+            <div class="container" style="width: 45%; float:right; margin-top: 10%;">
+                <table style="margin-bottom: 30px;" id = "stadistics" class="w3-table w3-striped w3-border">
+                    <tr>
+                        <th>Statistics</th>
+                        <th style=" text-align: center;">Mean</th>
+                        <th style=" text-align: center;">Deviation Standard</th>
+                        <th style=" text-align: center;">Max value</th>
+                        <th style=" text-align: center;">Min value</th>
+                    </tr>
+
+                    <tr>
+                        <th>Values</th>
+                        <td style=" text-align: center;" id="mean"> 1</td>
+                        <td style=" text-align: center;" id="standard_deviation">0</td>
+                        <td style=" text-align: center;" id="max_value">0</td>
+                        <td style=" text-align: center;" id="min_value">2</td>
+                    </tr>  
+                </table>
+            </div>
+            
         </div>
         
         <!--- Javi script --->
@@ -222,6 +267,8 @@
                  }       
               }
             }
+            
+            
         </script>
 
         <!--- Someone script --->

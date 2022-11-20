@@ -46,6 +46,7 @@ public class MainController extends HttpServlet {
 
         try {
 
+            
             consumDay = manager.getConsumDay("6/17/2021", "6/25/2021", pathJson);
            //Update json
             manager.updateColorJson(consumDay, pathJson);
